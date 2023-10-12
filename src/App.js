@@ -5,8 +5,7 @@ import { MainBackground } from "./component/MainBackground";
 function App() {
   return (
     <div /* className="text-3xl font-bold underline" */>
-      {/* <Form /> */}
-      <MainBackground/>
+      <MainBackground />
     </div>
   );
 }
