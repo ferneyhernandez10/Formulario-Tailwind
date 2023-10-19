@@ -16,23 +16,31 @@ export const Form = () => {
       <h4 className="text-center block mb-6 text-sm font-medium text-gray-900 dark:text-white">
         Déjanos tus datos
       </h4>
-      <div className="flex flex-row mb-2">
-        <input
-          {...register("nombre", { required: true })}
-          placeholder="Nombre"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-        />
-        {errors.nombre?.type === "required" && (
-          <p className="text-xs text-red-600">Este campo es obligatorio.</p>
-        )}
-        <input
-          {...register("teléfono", { required: true })}
-          placeholder="Teléfono"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-        />
-        {errors.teléfono?.type === "required" && (
-          <p className="text-xs text-red-600">Este campo es obligatorio.</p>
-        )}
+      <div className="flex mb-2">
+        <div className="flex-col">
+          <input
+            {...register("nombre", { required: true })}
+            placeholder="Nombre"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-11/12 p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+          />
+          {errors.nombre?.type === "required" && (
+            <p className="text-xs text-red-600 mb-4">
+              Este campo es obligatorio.
+            </p>
+          )}
+        </div>
+        <div className="flex-col">
+          <input
+            {...register("teléfono", { required: true })}
+            placeholder="Teléfono"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+          />
+          {errors.teléfono?.type === "required" && (
+            <p className="text-xs text-red-600 mb-4">
+              Este campo es obligatorio.
+            </p>
+          )}
+        </div>
       </div>
       <input
         {...register("correoElectrónico", {
@@ -95,6 +103,21 @@ export const Form = () => {
         className="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-1 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white mb-2"
       />
       {errors.comentarios?.type === "required" && (
+        <p className="text-xs text-red-600 mb-4">Este campo es obligatorio.</p>
+      )}
+      <input
+        {...register("termsAndConditions", { required: true })}
+        type="checkbox"
+        value=""
+        className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+      />
+      <label className="ml-2 text-sm font-light text-gray-900 dark:text-gray-300">
+        Acepto los
+        <label className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+          términos y condiciones de uso y términos y condiciones comerciales.
+        </label>
+      </label>
+      {errors.termsAndConditions?.type === "required" && (
         <p className="text-xs text-red-600 mb-4">Este campo es obligatorio.</p>
       )}
       <input
